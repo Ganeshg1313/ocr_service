@@ -5,5 +5,3 @@ opencv-python-headless
 numpy
 Pillow
 firebase-admin
-os
-json
