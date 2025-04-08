@@ -1,10 +1,3 @@
-import os
-import json
-from dotenv import load_dotenv  # Import dotenv
-
-# Load environment variables from .env file in the current directory
-load_dotenv()
-
 from flask import Flask, request, jsonify
 import cv2
 import easyocr
