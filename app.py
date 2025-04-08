@@ -30,8 +30,18 @@ firebase_admin.initialize_app(cred, {
 # Define the Firebase database reference for ambulance flag.
 firebase_ref = db.reference('/ambulance_flag_A')  # For example, change as needed
 
+# Define the path to your model directory
+model_dir = './easyocr_models'
+
+# Initialize the Reader with the model storage directory and disable downloading
+reader = easyocr.Reader(
+    ['en'],  # List of languages; add other language codes as needed
+    model_storage_directory=model_dir,
+    download_enabled=False
+)
+
 # Initialize EasyOCR Reader (using CPU)
-reader = easyocr.Reader(['en'], gpu=False)
+# reader = easyocr.Reader(['en'], gpu=False)
 
 def process_image(image_data):
     """
@@ -96,4 +106,5 @@ def detect():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Render sets PORT env variable
     app.run(host="0.0.0.0", port=port)
+    # app.run(host='127.0.0.1', port=5000, debug=True)
 
