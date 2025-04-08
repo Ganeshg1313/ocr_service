@@ -1,3 +1,5 @@
+import os
+import json
 from flask import Flask, request, jsonify
 import cv2
 import easyocr
